@@ -84,30 +84,30 @@ function Get-ADUserInfo {
     [CmdletBinding(DefaultParameterSetName = 'ByID')]
     [OutputType([ADUserInfo[]])]
     Param(
-		[Parameter(ParameterSetName = 'ByID', Position = 0, ValueFromPipeline = $true)]
-		[Alias('sAMAccountName', 'EmployeeID', 'LogonId')]
-		[String]$UserId = $env:USERNAME,
+        [Parameter(ParameterSetName = 'ByID', Position = 0, ValueFromPipeline = $true)]
+        [Alias('sAMAccountName', 'EmployeeID', 'LogonId')]
+        [String]$UserId = $env:USERNAME,
 
         [Parameter(ParameterSetName = 'ByCN')]
         [ValidateLength(4, 100)]
-		[Alias('CN', 'FullName')]
-		[String]$Name,
+        [Alias('CN', 'FullName')]
+        [String]$Name,
 
         [Parameter(ParameterSetName = 'BySN')]
         [ValidateLength(2, 100)]
-		[Alias('GivenName')]
-		[String]$FirstName,
+        [Alias('GivenName')]
+        [String]$FirstName,
 
         [Parameter(ParameterSetName = 'BySN')]
         [ValidateLength(2, 100)]
-		[Alias('SN', 'Surname')]
-		[String]$LastName,
+        [Alias('SN', 'Surname')]
+        [String]$LastName,
 
         [ValidateRange(1, 1000)]
         [Int]$Limit = 20,
 
         [String[]]$Properties
-	)
+    )
     
     PROCESS {
         switch ($PSCmdlet.ParameterSetName) {
@@ -174,9 +174,9 @@ Gets all the top groups for user abc123
 function Get-ADGroupInfo {
     [CmdletBinding()]
     Param(
-		[Parameter(Position = 0, ValueFromPipeline = $true)]
-		[Alias('sAMAccountName', 'EmployeeID', 'LogonId')]
-		[String]$UserId = $env:USERNAME,
+        [Parameter(Position = 0, ValueFromPipeline = $true)]
+        [Alias('sAMAccountName', 'EmployeeID', 'LogonId')]
+        [String]$UserId = $env:USERNAME,
         
         [Switch]$Recurse
     )
@@ -233,7 +233,7 @@ function Set-ADInfoConfig {
         $PSCmdlet.ThrowTerminatingError(
             [ErrorRecord]::new(
                 [PSArgumentException]"No configuration item specified",
-                'PSADInfo.Check-ConfigArgument',
+                'PSADInfoGet.Set-ADInfoConfig',
                 [ErrorCategory]::InvalidArgument,
                 $null
             )

@@ -48,45 +48,45 @@
                 </TableRowEntries>
             </TableControl>
         </View>
-		<View>
-			<Name>ADUserInfo.List</Name>
+        <View>
+            <Name>ADUserInfo.List</Name>
             <ViewSelectedBy>
                 <TypeName>ADUserInfo</TypeName>
             </ViewSelectedBy>
-			<ListControl>
-				<ListEntries>
-					<ListEntry>
-						<ListItems>
-							<ListItem><PropertyName>EmployeeID</PropertyName></ListItem>
-							<ListItem><PropertyName>FullName</PropertyName></ListItem>
-							<ListItem><PropertyName>JobTitle</PropertyName></ListItem>
-							<ListItem><PropertyName>Division</PropertyName></ListItem>
-							<ListItem><PropertyName>Department</PropertyName></ListItem>
-							<ListItem><PropertyName>Mail</PropertyName></ListItem>
-							<ListItem><PropertyName>Telephone</PropertyName></ListItem>
-							<ListItem><PropertyName>Mobile</PropertyName></ListItem>
-							<ListItem><PropertyName>ManagerName</PropertyName></ListItem>
-							<ListItem><PropertyName>CreatedDateTime</PropertyName></ListItem>
-							<ListItem><PropertyName>AccountExpires</PropertyName></ListItem>
-						</ListItems>
-					</ListEntry>
-				</ListEntries>
-			</ListControl>
-		</View>
-		<View>
-			<Name>ADUserInfo.Wide</Name>
-			<ViewSelectedBy>
-				<TypeName>ADUserInfo</TypeName>
-			</ViewSelectedBy>
-			<WideControl>
-				<WideEntries>
-					<WideEntry>
-						<WideItem>
-							<PropertyName>FullName</PropertyName>
-						</WideItem>
-					</WideEntry>
-				</WideEntries>
-			</WideControl>
-		</View>
+            <ListControl>
+                <ListEntries>
+                    <ListEntry>
+                        <ListItems>
+                            <ListItem><PropertyName>EmployeeID</PropertyName></ListItem>
+                            <ListItem><PropertyName>FullName</PropertyName></ListItem>
+                            <ListItem><PropertyName>JobTitle</PropertyName></ListItem>
+                            <ListItem><PropertyName>Division</PropertyName></ListItem>
+                            <ListItem><PropertyName>Department</PropertyName></ListItem>
+                            <ListItem><PropertyName>Mail</PropertyName></ListItem>
+                            <ListItem><PropertyName>Telephone</PropertyName></ListItem>
+                            <ListItem><PropertyName>Mobile</PropertyName></ListItem>
+                            <ListItem><PropertyName>ManagerName</PropertyName></ListItem>
+                            <ListItem><PropertyName>CreatedDateTime</PropertyName></ListItem>
+                            <ListItem><PropertyName>AccountExpires</PropertyName></ListItem>
+                        </ListItems>
+                    </ListEntry>
+                </ListEntries>
+            </ListControl>
+        </View>
+        <View>
+            <Name>ADUserInfo.Wide</Name>
+            <ViewSelectedBy>
+                <TypeName>ADUserInfo</TypeName>
+            </ViewSelectedBy>
+            <WideControl>
+                <WideEntries>
+                    <WideEntry>
+                        <WideItem>
+                            <PropertyName>FullName</PropertyName>
+                        </WideItem>
+                    </WideEntry>
+                </WideEntries>
+            </WideControl>
+        </View>
     </ViewDefinitions>
 </Configuration>

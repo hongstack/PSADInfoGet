@@ -9,12 +9,27 @@ Information in active directory is available but not easy to access, especially 
 **PSADInfoGet** is _**safe**_ to use and will not cause any careless change to the active directory because it only provides read commands.
 
 ## Installation
-Clone or download [PSADInfoGet](https://github.com/hongstack/PSADInfoGet/archive/master.zip), decompress it if downloaded, then copy it to: `C:\Users\$env:USERNAME\Documents\WindowsPowerShell\Modules`.
+### Direct Download
+Download [PSADInfoGet v1.0.0](https://github.com/hongstack/PSADInfoGet/releases/download/1.0.0/PSADInfoGet_1.0.0.zip), extracts the content under one of the following locations:
+* `C:\Program Files\WindowsPowerShell\Modules` (*applies to all users, but may not be an option in some corporate environments*).
+* `$env:USERPROFILE\Documents\WindowsPowerShell\Modules` (*applies to current user*).
 
-If the [PSLocalModule](https://github.com/hongstack/PSLocalModule) is installed, it only needs to run the following command:
+### Manual Build
+This option assumes [PSLocalModule](https://github.com/hongstack/PSLocalModule) is installed and configured.
+
+When clone to any directory:
 ```PowerShell
-Set-PSCodePath <parent_dir_to_PSADInfoGet>
-Import-LocalModule PSADInfoGet
+git clone https://github.com/hongstack/PSADInfoGet.git
+Set-Location PSADInfoGet
+Install-LocalModule -Verbose -Whatif
+Install-LocalModule
+```
+
+When clone to the `PSCodePath`:
+```PowerShell
+git clone https://github.com/hongstack/PSADInfoGet.git <PSCodePath>
+Install-LocalModule PSADInfoGet -Verbose -Whatif
+Install-LocalModule PSADInfoGet
 ```
 
 ## Usage

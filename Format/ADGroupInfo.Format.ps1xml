@@ -30,39 +30,39 @@
                 </TableRowEntries>
             </TableControl>
         </View>
-		<View>
-			<Name>ADGroupInfo.List</Name>
+        <View>
+            <Name>ADGroupInfo.List</Name>
             <ViewSelectedBy>
                 <TypeName>ADGroupInfo</TypeName>
             </ViewSelectedBy>
-			<ListControl>
-				<ListEntries>
-					<ListEntry>
-						<ListItems>
-							<ListItem><PropertyName>Name</PropertyName></ListItem>
-							<ListItem><PropertyName>ShortInfo</PropertyName></ListItem>
-							<ListItem><PropertyName>DistinguishedName</PropertyName></ListItem>
-							<ListItem><PropertyName>Info</PropertyName></ListItem>
-							<ListItem><PropertyName>CreatedDateTime</PropertyName></ListItem>
-						</ListItems>
-					</ListEntry>
-				</ListEntries>
-			</ListControl>
-		</View>
-		<View>
-			<Name>ADGroupInfo.Wide</Name>
-			<ViewSelectedBy>
-				<TypeName>ADGroupInfo</TypeName>
-			</ViewSelectedBy>
-			<WideControl>
-				<WideEntries>
-					<WideEntry>
-						<WideItem>
-							<PropertyName>Name</PropertyName>
-						</WideItem>
-					</WideEntry>
-				</WideEntries>
-			</WideControl>
-		</View>
+            <ListControl>
+                <ListEntries>
+                    <ListEntry>
+                        <ListItems>
+                            <ListItem><PropertyName>Name</PropertyName></ListItem>
+                            <ListItem><PropertyName>ShortInfo</PropertyName></ListItem>
+                            <ListItem><PropertyName>DistinguishedName</PropertyName></ListItem>
+                            <ListItem><PropertyName>Info</PropertyName></ListItem>
+                            <ListItem><PropertyName>CreatedDateTime</PropertyName></ListItem>
+                        </ListItems>
+                    </ListEntry>
+                </ListEntries>
+            </ListControl>
+        </View>
+        <View>
+            <Name>ADGroupInfo.Wide</Name>
+            <ViewSelectedBy>
+                <TypeName>ADGroupInfo</TypeName>
+            </ViewSelectedBy>
+            <WideControl>
+                <WideEntries>
+                    <WideEntry>
+                        <WideItem>
+                            <PropertyName>Name</PropertyName>
+                        </WideItem>
+                    </WideEntry>
+                </WideEntries>
+            </WideControl>
+        </View>
     </ViewDefinitions>
 </Configuration>

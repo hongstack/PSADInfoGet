@@ -22,11 +22,11 @@
     VariablesToExport = '*'
     AliasesToExport   = @('aduser', 'adu', 'adgroup', 'adg')
 
-	PrivateData = @{
+    PrivateData = @{
         PSData = @{
             Tags         = 'PowerShell', 'Active Directory', 'PSEdition_Core', 'PSEdition_Desktop', 'Windows'
-			LicenseUri   = 'https://github.com/hongstack/PSADInfoGet/blob/master/LICENSE'
-			ProjectUri   = 'https://github.com/hongstack/PSADInfoGet'
+            LicenseUri   = 'https://github.com/hongstack/PSADInfoGet/blob/master/LICENSE'
+            ProjectUri   = 'https://github.com/hongstack/PSADInfoGet'
             ReleaseNotes = 'https://github.com/hongstack/PSADInfoGet/releases/tag/1.0.0'
         }
     }
