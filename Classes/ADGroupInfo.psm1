@@ -9,9 +9,12 @@ Class ADGroupInfo {
 
     [ADAttribute()]
     [String] $Info
+	
+	[ADAttribute()]
+    [String] $Mail
 
     [ADAttribute('WhenCreated')]
-    hidden [String] $CreatedDateTime
+    [String] $CreatedDateTime
 
     #[String[]] $Members
 
