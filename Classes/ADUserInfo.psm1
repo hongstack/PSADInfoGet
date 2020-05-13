@@ -57,6 +57,12 @@ class ADUserInfo {
 
     [ADAttribute('WhenCreated')]
     [String] $CreatedDateTime
+	
+	[ADAttribute('LockoutTime')]
+    hidden [String] $_LockoutTime
+	
+	[ADAttribute('BadPasswordTime')]
+    hidden [String] $_BadPasswordTime
 
     [ADAttribute('AccountExpires')]
     hidden [String] $_AccountExpires
@@ -96,8 +102,24 @@ class ADUserInfo {
         $this | Add-Member -MemberType ScriptProperty -Name "ManagerName" -Value {
             $this.Manager.Substring(3, $this.Manager.IndexOf(',OU') - 3).Replace('\', '')
         }
-
-        $this | Add-Member -MemberType ScriptProperty -Name "AccountExpires" -Value {
+		
+		$this | Add-Member -MemberType ScriptProperty -Name "LockoutTime" -Value {
+			if ($this._LockoutTime -eq 0) {
+                "<Never>"
+            } else {
+                [Datetime]::FromFileTime($this._LockoutTime)
+            }
+        }
+		
+		$this | Add-Member -MemberType ScriptProperty -Name "BadPasswordTime" -Value {
+			if ($this._BadPasswordTime -eq 0) {
+                "<Never>"
+            } else {
+                [Datetime]::FromFileTime($this._BadPasswordTime)
+            }
+        }
+		
+		$this | Add-Member -MemberType ScriptProperty -Name "AccountExpires" -Value {
             if (($this._AccountExpires -eq 0) -or ($this._AccountExpires -gt  [DateTime]::MaxValue.Ticks)) {
                 "<Never>"
             } else {

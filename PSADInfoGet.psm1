@@ -72,13 +72,13 @@ Gets the information for all users with 'Smith' in their common name.
 .Example
 Get-ADUserInfo -FirstName Alex -Limit 10
 
-Gets the information for all users with the first name as 'Alex' and only fetches 10 records.
+Gets the first 10 users with the first name as 'Alex'
 
 .Example
-Get-ADUserInfo -LastName Samuel -Properties personalTitle, memberOf
+Get-ADUserInfo SamAlex -Properties personalTitle, memberOf, pwdLastSet | fl *
 
-Gets the information for all users with the last name as 'Samuel' and fetches additional 
-information: personalTitle and memberOf.
+Gets the information for the user whose SamAccountName/LogonId/EmployeeId is 'SamAlex'
+and fetches additional information: personalTitle, memberOf, and pwdLastSet
 #>
 function Get-ADUserInfo {
     [CmdletBinding(DefaultParameterSetName = 'ByID')]
