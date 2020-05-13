@@ -5,7 +5,7 @@ Gets one or more Active Directory users.
 .DESCRIPTION
 The Get-ADUserInfo searches Active Directory for user information based on the specified paramters.
 
-All the search parameters (UserId, Name, FirstName and LastName) accepts the wildcards. 
+All the search parameters (UserId, Name, FirstName, LastName, Mail) accepts the wildcards. 
 However, the more specific the parameter is, the better the search performs.
 - *    : Matches zero or more characters
 - ?    : Matches any character
@@ -20,21 +20,24 @@ It defaults to the current logon user if not specified. It aliases to:
 - LogonId
 
 .PARAMETER Name
-Specifies the common name (CN) of an active directory entry. It requires minimum of 4 characters. 
+Specifies the common name (CN) of an Active Directory user entry. It requires minimum of 4 characters. 
 It aliases to:
 - CN
 - FullName
 
 .PARAMETER FirstName
-Specifies the given name (GivenName) of an active directory entry. It requires minimum of 2 characters. 
+Specifies the given name (GivenName) of an Active Directory user entry. It requires minimum of 2 characters. 
 It aliases to:
 - GivenName
 
 .PARAMETER LastName
-Specifies the surname (SN) of an active directory entry. It requires minimum of 2 characters. 
+Specifies the surname (SN) of an Active Directory user entry. It requires minimum of 2 characters. 
 It aliases to:
 - SN
 - Surname
+
+.PARAMETER Mail
+Specifies the mail of an Active Directory user entry. It requires minimum of 2 characters.
 
 .PARAMETER Limit
 Specifies the maximum number of results to return, default to 20.
@@ -118,7 +121,7 @@ function Get-ADUserInfo {
                 } else {
                     $SubFilter = if ($FirstName) { "(givenName=$FirstName)" } else { "(sn=$LastName)" }
                 }
-                break;
+                break
             }
             'ByML' { $SubFilter = "(mail=$Mail)"; Break }
         }

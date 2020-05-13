@@ -6,6 +6,13 @@ Gets one or more Active Directory groups.
 The Get-ADGroupInfo searches Active Directory for group information based on the specified paramters.
 By default this function will return the assigned groups. Specify -Recurse to get all top groups.
 
+All the search parameters (UserId, GroupName, GroupMail) accepts the wildcards. 
+However, the more specific the parameter is, the better the search performs.
+- *    : Matches zero or more characters
+- ?    : Matches any character
+- [ac] : Matches 'a' or 'c'
+- [a-c]: Matches 'a', 'b', 'c'
+
 .PARAMETER UserId
 Specifies the user id that is evaluated against either samAccountName or employeeID. 
 It defaults to the current logon user if not specified. It aliases to:
@@ -14,9 +21,14 @@ It defaults to the current logon user if not specified. It aliases to:
 - LogonId
 
 .PARAMETER GroupName
-Specifies the common name (CN) of an active directory group entry. It requires minimum of 2 characters. 
+Specifies the common name (CN) of an Active Directory group entry. It requires minimum of 2 characters. 
 It aliases to:
 - CN
+
+.PARAMETER GroupMail
+Specifies the mail of an Active Directory group entry. It requires minimum of 2 characters. 
+It aliases to:
+- mail
 
 .PARAMETER Recurse
 Specifies that the top groups, rather than the assigned groups, to be returned.
@@ -43,6 +55,11 @@ function Get-ADGroupInfo {
         [ValidateLength(2, 100)]
         [Alias('cn')]
         [String]$GroupName,
+
+        [Parameter(ParameterSetName = 'ByGML')]
+        [ValidateLength(2, 100)]
+        [Alias('mail')]
+        [String]$GroupMail,
         
         [Switch]$Recurse
     )
@@ -56,6 +73,7 @@ function Get-ADGroupInfo {
 
         switch ($PSCmdlet.ParameterSetName) {
             'ByGNM' { $SubFilter = "(cn=$GroupName)"; Break }
+            'ByGML' { $SubFilter = "(mail=$GroupMail)"; Break }
         }
 
         $GroupSearcher = [adsiSearcher]"(&(objectClass=Group)$SubFilter)"
