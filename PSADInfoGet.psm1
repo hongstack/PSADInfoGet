@@ -103,6 +103,10 @@ function Get-ADUserInfo {
         [Alias('SN', 'Surname')]
         [String]$LastName,
 
+        [Parameter(ParameterSetName = 'ByML')]
+        [ValidateLength(2, 100)]
+        [String]$Mail,
+
         [ValidateRange(1, 1000)]
         [Int]$Limit = 20,
 
@@ -119,7 +123,9 @@ function Get-ADUserInfo {
                 } else {
                     $SubFilter = if ($FirstName) { "(givenName=$FirstName)" } else { "(sn=$LastName)" }
                 }
+                break;
             }
+            'ByML' { $SubFilter = "(mail=$Mail)"; Break }
         }
 
         $UserSearcher = [adsiSearcher]"(&(objectClass=User)$SubFilter)"
