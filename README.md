@@ -10,7 +10,7 @@ Information in active directory is available but not easy to access, especially 
 
 ## Installation
 ### Direct Download
-Download [PSADInfoGet v1.0.0](https://github.com/hongstack/PSADInfoGet/releases/download/1.0.0/PSADInfoGet_1.0.0.zip), extracts the content under one of the following locations:
+Download [PSADInfoGet v1.1.0](https://github.com/hongstack/PSADInfoGet/releases/download/1.1.0/PSADInfoGet_1.1.0.zip), extracts the content under one of the following locations:
 * `C:\Program Files\WindowsPowerShell\Modules` (*applies to all users, but may not be an option in some corporate environments*).
 * `$env:USERPROFILE\Documents\WindowsPowerShell\Modules` (*applies to current user*).
 
@@ -34,9 +34,3 @@ Install-LocalModule PSADInfoGet
 
 ## Usage
 Use PowerShell's `Get-Command -Module PSADInfoGet` to explore available commands, and `Get-Help <Cmdlet>` to find out the usage for each command.
-
-## TODO
-* Get all users by an AD group
-* Add `-Full` flag to Get-ADGroupInfo to get full information for the assigned groups
-* Cache search result
-* Automatically adjust search limit

@@ -8,10 +8,10 @@
 
 @{
     RootModule = 'PSADInfoGet.psm1'
-    ModuleVersion = '1.0.0'
+    ModuleVersion = '1.1.0'
     GUID = '88f3c108-33ec-4120-9e97-6a5b2c041d8f'
     Author = 'Hong Li'
-    Copyright = '(c) 2019 Hong Li. All rights reserved.'
+    Copyright = '(c) 2020 Hong Li. All rights reserved.'
     Description = 'PSADInfoGet provides commands for getting information from active directory'
     PowerShellVersion = '5.1'
 
@@ -27,7 +27,7 @@
             Tags         = 'PowerShell', 'Active Directory', 'PSEdition_Core', 'PSEdition_Desktop', 'Windows'
             LicenseUri   = 'https://github.com/hongstack/PSADInfoGet/blob/master/LICENSE'
             ProjectUri   = 'https://github.com/hongstack/PSADInfoGet'
-            ReleaseNotes = 'https://github.com/hongstack/PSADInfoGet/releases/tag/1.0.0'
+            ReleaseNotes = 'https://github.com/hongstack/PSADInfoGet/releases/tag/1.1.0'
         }
     }
 }
