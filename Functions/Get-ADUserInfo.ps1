@@ -185,6 +185,10 @@ function Get-ADUsersByGroup($GroupName) {
         $Group = $Groups[0]
     }
 
+    if ($null -eq $Group.member) {
+        return
+    }
+
     $Stack = [Stack[String]]::new()
     $Group.member | ForEach { $Stack.Push($_) }
 
