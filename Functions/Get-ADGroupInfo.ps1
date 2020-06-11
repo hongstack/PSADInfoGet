@@ -153,17 +153,23 @@ function Get-TopADGroups($DNames) {
     $GroupSearcher.PropertiesToLoad.AddRange([ADGroupInfo]::GetADProperties().Keys)
     $null = $GroupSearcher.PropertiesToLoad.Add('memberOf')
 
+    $Processed = [HashSet[String]]::new()
     while ($Stack.Count -gt 0) {
         $DName = $Stack.Pop()
+        if ($Processed.Contains($DName)) {
+            continue
+        } else {
+            [Void]$Processed.Add($DName)
+        }
         $GroupSearcher.Filter = "(&(objectClass=Group)(distinguishedName=$DName))"
         $SearchResult = $GroupSearcher.FindOne()
         $ParentGroups = $SearchResult.Properties['memberOf']
+        [ADGroupInfo]::new($SearchResult.Properties)
         if ($ParentGroups.Count -gt 0) {
             $ParentGroups | ForEach { $Stack.Push($_) }
-        } else {
-            [ADGroupInfo]::new($SearchResult.Properties)
         }
     }
+    Write-Verbose "$($Processed.Count) groups returned"
     $GroupSearcher.Dispose()
 }
 
