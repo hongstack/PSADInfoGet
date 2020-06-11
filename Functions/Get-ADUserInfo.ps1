@@ -192,11 +192,16 @@ function Get-ADUsersByGroup($GroupName) {
     $Searcher.PropertiesToLoad.AddRange([ADUserInfo]::GetADProperties().Keys)
     $null = $Searcher.PropertiesToLoad.AddRange(@('member','objectClass'))
 
+    $Processed = [HashSet[String]]::new()
     while ($Stack.Count -gt 0) {
         $DName = $Stack.Pop()
+        if ($Processed.Contains($DName)) {
+            continue
+        } else {
+            [Void]$Processed.Add($DName)
+        }
         $Searcher.Filter = "(distinguishedName=$DName)"
         $SearchResult = $Searcher.FindOne()
-
         $ObjectClass = $SearchResult.Properties['objectClass']
         if ($ObjectClass.Contains('user') -or $ObjectClass.Contains('person')) {
             [ADUserInfo]::new($SearchResult.Properties)
